@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PRTimer</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="email">Correo electrónico:</string>
+    <string name="password">Contraseña:</string>
+    <string name="confirm_password">Confirma tu contraseña:</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="enter">Ingresar</string>
+    <string name="sign_up">Regístrate</string>
+    <string name="accept">Aceptar</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="profile">Perfil</string>
+    <string name="timer">Cronómetro</string>
+    <string name="online_practice">Práctica en línea</string>
+    <string name="stats">Estadísticas</string>
+</resources>
