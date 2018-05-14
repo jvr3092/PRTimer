@@ -13,4 +13,25 @@
     <string name="timer">Cronómetro</string>
     <string name="online_practice">Práctica en línea</string>
     <string name="stats">Estadísticas</string>
+    <string name="wca">WCA ID:</string>
+    <string name="name">Nombre:</string>
+    <string name="last_name">Apellidos:</string>
+    <string name="gender">Género:</string>
+    <string name="birthdate">Fecha de Nacimiento:</string>
+    <string name="country">País:</string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
+    <string-array name="gender_array">
+        <item>Seleccionar...</item>
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+    <string-array name="country_array">
+        <item>Seleccionar...</item>
+        <item>México</item>
+        <item>Estados Unidos</item>
+        <item>Canadá</item>
+        <item>Colombia</item>
+    </string-array>
+    <string name="date">dd/mm/yyyy</string>
 </resources>

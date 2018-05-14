@@ -3,13 +3,7 @@ package com.jvrware.prtimer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class OptionActivity extends Activity {
 
@@ -23,12 +17,16 @@ public class OptionActivity extends Activity {
     }
 
     public void profile(View v) {
-
+        //BackgroundProfileData backgroundProfileData = new BackgroundProfileData(this);
+        //backgroundProfileData.execute(email);
+        Intent intent = new Intent(OptionActivity.this, ProfileActivity.class);
+        intent.putExtra("email", email);
+        startActivity(intent);
     }
 
     public void timer(View v) {
-        BackgroundTimerData backgroundTimerData = new BackgroundTimerData(this);
-        backgroundTimerData.execute(email);
+        BackgroundPuzzleTimerData backgroundPuzzleTimerData = new BackgroundPuzzleTimerData(this);
+        backgroundPuzzleTimerData.execute(email);
     }
 
     public void onlinePractice(View v) {

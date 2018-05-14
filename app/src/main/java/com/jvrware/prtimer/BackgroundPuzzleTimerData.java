@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,20 +21,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BackgroundTimerData extends AsyncTask<String, Void, ArrayList<String>> {
+public class BackgroundPuzzleTimerData extends AsyncTask<String, Void, ArrayList<String>> {
 
-    Context context;
-    private String email;
+    private Context context;
+    private String email, scramble, scrambledPuzzle;
 
-    BackgroundTimerData(Context context) {
+    BackgroundPuzzleTimerData(Context context) {
         this.context = context;
     }
+
+
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         List<String> list = new ArrayList<String>();
         this.email = strings[0];
-        list.add(email);
-        String link = "https://prt-app.000webhostapp.com/puzzleType.php";
+        String link = "https://prt-app.000webhostapp.com/getScramble.php";
         try {
             URL url = new URL(link);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -46,6 +48,41 @@ public class BackgroundTimerData extends AsyncTask<String, Void, ArrayList<Strin
             while ((line = bufferedReader.readLine()) != null) {
                 result += line;
             }
+            bufferedReader.close();
+            inputStream.close();
+            httpURLConnection.disconnect();
+            JSONArray jsonArray = new JSONArray(result);
+            JSONObject jsonObject = null;
+            jsonObject = jsonArray.getJSONObject(0);
+            scramble = jsonObject.getString("scramble");
+            //jsonObject = jsonArray.getJSONObject(1);
+            scrambledPuzzle = jsonObject.getString("scrambledPuzzle");
+        }
+        catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+        link = "https://prt-app.000webhostapp.com/puzzleType.php";
+        try {
+            URL url = new URL(link);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoInput(true);
+            InputStream inputStream = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            String result = "";
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                result += line;
+            }
+            bufferedReader.close();
+            inputStream.close();
+            httpURLConnection.disconnect();
             JSONArray jsonArray = new JSONArray(result);
             JSONObject jsonObject = null;
             String[] array = new String[jsonArray.length()];
@@ -73,10 +110,13 @@ public class BackgroundTimerData extends AsyncTask<String, Void, ArrayList<Strin
     }
 
     @Override
-    protected void onPostExecute(ArrayList<String> timerData) {
+    protected void onPostExecute(ArrayList<String> puzzleData) {
         Intent intent = new Intent(context, TimerActivity.class);
-        intent.putStringArrayListExtra("timerData", timerData);
+        intent.putExtra("email", email);
+        intent.putExtra("scramble", scramble);
+        intent.putExtra("scrambledPuzzle", scrambledPuzzle);
+        intent.putStringArrayListExtra("puzzleData", puzzleData);
         context.startActivity(intent);
-        ((Activity) context).finish();
+        //((Activity) context).finish();
     }
 }

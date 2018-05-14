@@ -7,11 +7,12 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:onClick="setTimer"
     tools:context=".TimerActivity">
 
     <Spinner
         android:id="@+id/puzzleType"
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
@@ -21,7 +22,7 @@
 
     <Spinner
         android:id="@+id/solveType"
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -42,4 +43,575 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scramble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <View
+        android:id="@+id/cube1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toEndOf="@+id/cube1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toEndOf="@+id/cube2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube1" />
+
+    <View
+        android:id="@+id/cube5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube4"
+        app:layout_constraintTop_toBottomOf="@+id/cube2" />
+
+    <View
+        android:id="@+id/cube6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube5"
+        app:layout_constraintTop_toBottomOf="@+id/cube3" />
+
+    <View
+        android:id="@+id/cube7"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube4" />
+
+    <View
+        android:id="@+id/cube8"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube7"
+        app:layout_constraintTop_toBottomOf="@+id/cube5" />
+
+    <View
+        android:id="@+id/cube9"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube8"
+        app:layout_constraintTop_toBottomOf="@+id/cube6" />
+
+    <View
+        android:id="@+id/cube10"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/cube48"
+        app:layout_constraintTop_toBottomOf="@+id/cube7" />
+
+    <View
+        android:id="@+id/cube11"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/cube10"
+        app:layout_constraintTop_toBottomOf="@+id/cube8" />
+
+    <View
+        android:id="@+id/cube12"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/cube11"
+        app:layout_constraintTop_toBottomOf="@+id/cube9" />
+
+    <View
+        android:id="@+id/cube13"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube51"
+        app:layout_constraintTop_toBottomOf="@+id/cube10" />
+
+    <View
+        android:id="@+id/cube14"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube13"
+        app:layout_constraintTop_toBottomOf="@+id/cube11" />
+
+    <View
+        android:id="@+id/cube15"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube14"
+        app:layout_constraintTop_toBottomOf="@+id/cube12" />
+
+    <View
+        android:id="@+id/cube16"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube54"
+        app:layout_constraintTop_toBottomOf="@+id/cube13" />
+
+    <View
+        android:id="@+id/cube17"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube16"
+        app:layout_constraintTop_toBottomOf="@+id/cube14" />
+
+    <View
+        android:id="@+id/cube18"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube17"
+        app:layout_constraintTop_toBottomOf="@+id/cube15" />
+
+    <View
+        android:id="@+id/cube19"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube12"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube20"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube19"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube21"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube20"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube22"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube15"
+        app:layout_constraintTop_toBottomOf="@+id/cube19" />
+
+    <View
+        android:id="@+id/cube23"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube22"
+        app:layout_constraintTop_toBottomOf="@+id/cube20" />
+
+    <View
+        android:id="@+id/cube24"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube23"
+        app:layout_constraintTop_toBottomOf="@+id/cube21" />
+
+    <View
+        android:id="@+id/cube25"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube18"
+        app:layout_constraintTop_toBottomOf="@+id/cube22" />
+
+    <View
+        android:id="@+id/cube26"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube25"
+        app:layout_constraintTop_toBottomOf="@+id/cube23" />
+
+    <View
+        android:id="@+id/cube27"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube26"
+        app:layout_constraintTop_toBottomOf="@+id/cube24" />
+
+    <View
+        android:id="@+id/cube28"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube16" />
+
+    <View
+        android:id="@+id/cube29"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/cube28"
+        app:layout_constraintTop_toBottomOf="@+id/cube17" />
+
+    <View
+        android:id="@+id/cube30"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/cube29"
+        app:layout_constraintTop_toBottomOf="@+id/cube18" />
+
+    <View
+        android:id="@+id/cube31"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube28" />
+
+    <View
+        android:id="@+id/cube32"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube31"
+        app:layout_constraintTop_toBottomOf="@+id/cube29" />
+
+    <View
+        android:id="@+id/cube33"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube32"
+        app:layout_constraintTop_toBottomOf="@+id/cube30" />
+
+    <View
+        android:id="@+id/cube34"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube31" />
+
+    <View
+        android:id="@+id/cube35"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube34"
+        app:layout_constraintTop_toBottomOf="@+id/cube32" />
+
+    <View
+        android:id="@+id/cube36"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube35"
+        app:layout_constraintTop_toBottomOf="@+id/cube33" />
+
+    <View
+        android:id="@+id/cube37"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube21"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube38"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube37"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube39"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube38"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube40"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube24"
+        app:layout_constraintTop_toBottomOf="@+id/cube37" />
+
+    <View
+        android:id="@+id/cube41"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube40"
+        app:layout_constraintTop_toBottomOf="@+id/cube38" />
+
+    <View
+        android:id="@+id/cube42"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube41"
+        app:layout_constraintTop_toBottomOf="@+id/cube39" />
+
+    <View
+        android:id="@+id/cube43"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube27"
+        app:layout_constraintTop_toBottomOf="@+id/cube40" />
+
+    <View
+        android:id="@+id/cube44"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube43"
+        app:layout_constraintTop_toBottomOf="@+id/cube41" />
+
+    <View
+        android:id="@+id/cube45"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube44"
+        app:layout_constraintTop_toBottomOf="@+id/cube42" />
+
+    <View
+        android:id="@+id/cube46"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube47"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube46"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube48"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="190dp"
+        app:layout_constraintStart_toEndOf="@+id/cube47"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cube49"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube46" />
+
+    <View
+        android:id="@+id/cube50"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube49"
+        app:layout_constraintTop_toBottomOf="@+id/cube47" />
+
+    <View
+        android:id="@+id/cube51"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube50"
+        app:layout_constraintTop_toBottomOf="@+id/cube48" />
+
+    <View
+        android:id="@+id/cube52"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cube49" />
+
+    <View
+        android:id="@+id/cube53"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube52"
+        app:layout_constraintTop_toBottomOf="@+id/cube50" />
+
+    <View
+        android:id="@+id/cube54"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/cube53"
+        app:layout_constraintTop_toBottomOf="@+id/cube51" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
